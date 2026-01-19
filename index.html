@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nailchemy nail studio</title>
+
+<style>
+
+body{
+ margin:0;
+ font-family:Arial;
+ background:#f7f4ef;
+}
+
+/* ===== NAV ===== */
+nav{
+ background:grey;
+ color:black;
+ height:40px;          /* 固定導覽列高度 */
+ padding:10px 40px;       /* 只保留左右間距 */
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+}
+
+nav img{
+ height:30px;          /* logo 自動縮小 */
+}
+
+nav h2{
+ font-size:20px;
+ margin:0;
+}
+nav ul{
+ list-style:none;
+ display:flex;
+ gap:20px;
+}
+
+nav a{
+ color:white;
+ text-decoration:none;
+ font-size:14px;
+}
+
+nav ul li a{
+ background:#F8EFC9;
+ color:black;
+ padding:6px 14px;
+ border-radius:20px;
+ font-size:20px;
+ transition:0.2s;
+}
+
+/* hover */
+nav ul li a:hover{
+ background:#FFEB9C;
+}
+
+/* active */
+nav ul li a:active{
+ transform:scale(0.9);
+ background: #F8DF79;
+}
+/* ===== BANNER ===== */
+.slider{
+ height:520px;
+ position:relative;
+ overflow:hidden;
+ margin-top: 0;
+}
+
+.slide{
+ position:absolute;
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ opacity:0;
+ transition:1s;
+}
+
+.slide.active{
+ opacity:1;
+}
+
+.dots{
+ position:absolute;
+ bottom:15px;
+ left:50%;
+ transform:translateX(-50%);
+ display:flex;
+ gap:10px;
+}
+
+.dot{
+ width:10px;
+ height:10px;
+ background:#ccc;
+ border-radius:50%;
+ cursor:pointer;
+ transition:0.2s;
+}
+
+.dot.active{
+ background:white;
+}
+
+.dot:hover{
+ transform:scale(1.3);
+}
+
+/* ===== SECTION ===== */
+.section{
+ padding:80px 40px;
+ text-align:center;
+}
+
+h2{
+ font-size:20px;
+ margin-bottom:30px;
+}
+
+/* ===== SERVICE ===== */
+.card-box{
+ display:flex;
+ justify-content:center;
+ gap:40px;
+}
+
+.card{
+ width:360px;
+}
+
+.card img{
+ width:100%;
+ border-radius:14px;
+}
+
+.card button{
+ background:#f7a3b5;
+ border:none;
+ padding:12px 28px;
+ border-radius:30px;
+ font-size:16px;
+ margin-top:15px;
+ cursor:pointer;
+ transition:0.2s;
+ font-weight: bolder;
+}
+
+/* 滑過 */
+.card button:hover{
+ background:#f48aa2;
+ transform:translateY(-2px);
+}
+
+/* 按下去 */
+.card button:active{
+ background:#e36b85;
+ transform:scale(0.95);
+}
+
+/* ===== WORK GALLERY ===== */
+.gallery{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:24px;
+ max-width:1200px;
+ margin:auto;
+}
+
+.gallery img{
+ width:100%;
+ border-radius:14px;
+ transition:0.3s;
+ cursor:pointer;
+}
+
+/* 滑過放大 + 陰影 */
+.gallery img:hover{
+ transform:scale(1.08);
+ box-shadow:0 8px 18px rgba(0,0,0,0.15);
+}
+
+/* ===== FOOTER ===== */
+.contact{
+ background:#dfe8de;
+ padding:60px 40px;
+ display:flex;
+ justify-content:center;
+ gap:40px;
+}
+
+.info-box{
+ background:white;
+ padding:20px;
+ width:200px;
+ font-size:14px;
+}
+
+/* ===== RWD ===== */
+@media(max-width:768px){
+ .card-box{
+  flex-direction:column;
+ }
+ .gallery{
+  grid-template-columns:repeat(2,1fr);
+ }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+ <div style="display:flex;align-items:center;gap:10px;">
+   <img src="logo.png" style="height:91px;">
+  <h2 style="margin:0; font-size:xx-large;">Nailchemy nail studio</h2>
+</div>
+
+  <ul>
+    <li><a href="#service">服務</a></li>
+    <li><a href="#work">作品</a></li>
+    <li><a href="#contact">預約</a></li>
+  </ul>
+</nav>
+
+<!-- Banner -->
+<div class="slider">
+  <img src="banner1.jpg" class="slide active">
+  <img src="banner2.jpg" class="slide">
+  <img src="banner3.jpg" class="slide">
+
+  <div class="dots">
+    <span class="dot active" onclick="goSlide(0)"></span>
+    <span class="dot" onclick="goSlide(1)"></span>
+    <span class="dot" onclick="goSlide(2)"></span>
+  </div>
+</div>
+
+<!-- Service -->
+<section id="service" class="section">
+  <h2>服務項目</h2>
+
+  <div class="card-box">
+    <div class="card">
+      <img src="design.jpg">
+      <button>立即預約</button>
+    </div>
+
+    <div class="card">
+      <img src="lesson.jpg">
+      <button>線上諮詢</button>
+    </div>
+  </div>
+</section>
+
+<!-- Works -->
+<section id="work" class="section">
+  <h2>作品展示</h2>
+
+  <div class="gallery">
+    <img src="work1.jpg">
+    <img src="work2.jpg">
+    <img src="work3.jpg">
+    <img src="work4.jpg">
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact">
+  <div class="info-box">店鋪資訊</div>
+  <div class="info-box">QR CODE</div>
+  <div class="info-box">QR CODE</div>
+</section>
+
+<script>
+let index=0;
+const slides=document.querySelectorAll(".slide");
+const dots=document.querySelectorAll(".dot");
+
+function showSlide(i){
+ slides.forEach(s=>s.classList.remove("active"));
+ dots.forEach(d=>d.classList.remove("active"));
+
+ slides[i].classList.add("active");
+ dots[i].classList.add("active");
+ index=i;
+}
+
+function goSlide(i){
+ showSlide(i);
+}
+
+setInterval(()=>{
+ index=(index+1)%slides.length;
+ showSlide(index);
+},3000);
+</script>
+
+</body>
+</html>
